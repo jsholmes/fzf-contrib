@@ -36,12 +36,7 @@ cdf() {
    file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
 
-# z - most frequently use directories
-unalias z
-z() {
-  if [[ -z "$*" ]]; then
-    cd "$(_z -l 2>&1 | sed -n 's/^[ 0-9.,]*//p' | fzf)"
-  else
-    _z "$@"
-  fi
+# fz - most frequently use directories
+fz() {
+  cd "$(fasd -l | fzf)"
 }
