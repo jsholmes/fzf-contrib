@@ -38,5 +38,10 @@ cdf() {
 
 # fz - most frequently use directories
 fz() {
-  cd "$(fasd -l | fzf)"
+  cd "$(fasd -ld | fzf)"
+}
+
+fvim() {
+  nvim "$(fasd -lf)"
+}
 }
